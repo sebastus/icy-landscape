@@ -1,0 +1,6 @@
+notes.txt
+**/.terraform/*
+**/.terraform.*
+.env
+**/*.tfplan
+**/terraform.*
