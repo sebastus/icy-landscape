@@ -1,0 +1,15 @@
+# build the docker container used in the devcontainer json file
+docker build . -t idc-govt:04
+
+# authenticate to az cli for ad hoc tests 
+# use these same creds in .env file, which terraform init sees when using the devcontainer
+az login --service-principal --tenant <tenant-id> -u <service-principal-client-id> -p <service-principal-client-secret>
+az account set -s <your-subscription-id>
+
+# clean out the go test cache so tests run again
+go clean -testcache
+  - or - 
+go test -count=1   <-- use a non-cache-able flag to clear test cache
+
+# command line for running tests from the tests folder
+gotestsum --format standard-verbose -- -timeout=30m -parallel 10
