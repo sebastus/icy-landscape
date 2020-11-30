@@ -9,6 +9,9 @@ FROM ubuntu:${VERSION}
 ARG DEBIAN_FRONTEND=noninteractive
 ARG TERRAFORM_VERSION=0.13.4
 ARG TFLINT_VERSION=0.18.0
+ARG GO_VERSION=1.15.1
+ARG GOTESTSUM_VERSION=0.5.3
+ARG GOLANGCILINT_VERSION=1.31.0
 
 # Install common tools and packages
 RUN apt-get update \
@@ -40,6 +43,29 @@ RUN mkdir -p /tmp/docker-downloads \
 
 # Install Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+
+# Make shared download folder
+RUN mkdir -p /tmp/docker-downloads
+
+# Install Go into /usr/local/go
+RUN curl -fsS https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz -o /tmp/docker-downloads/golang.tar.gz \
+    && tar -C /usr/local -xvf /tmp/docker-downloads/golang.tar.gz 
+
+# Install gotestsum into /usr/bin
+RUN curl -fsSL https://github.com/gotestyourself/gotestsum/releases/download/v${GOTESTSUM_VERSION}/gotestsum_${GOTESTSUM_VERSION}_linux_amd64.tar.gz -o /tmp/docker-downloads/gotestsum.tar.gz \
+    && tar -C /tmp/docker-downloads -xzf /tmp/docker-downloads/gotestsum.tar.gz \
+    && mv /tmp/docker-downloads/gotestsum /usr/bin
+
+# Install golangci-lint into /usr/bin
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/bin v${GOLANGCILINT_VERSION}
+
+# Golang environmentals and path
+ENV GO111MODULE=on
+ENV CGO_ENABLED=0
+ENV PATH=$PATH:/usr/local/go/bin
+
+# clean up the download folder
+RUN rm -rf /tmp/docker-downloads
 
 ARG DEBIAN_FRONTEND=interactive
 
