@@ -84,8 +84,8 @@ resource "azurerm_log_analytics_workspace" "ws" {
   
   ...
 }
-
 ```
+
 The resource name rules (such as the max length of 63 characters) for azurerm_log_analytics_workspace are in [this file](https://github.com/aztfmod/terraform-provider-azurecaf/blob/3b5b52b487acf1c338257ced78fe587e2d315029/resourceDefinition.json#L1760).  
 
 #### Generates multiple singleton names with a single azurecaf_name resource
