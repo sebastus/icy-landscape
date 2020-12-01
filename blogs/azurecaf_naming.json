@@ -1,0 +1,13 @@
+{
+    "Title": "Generate standardized names for Azure resources",
+    "published": false,
+    "description": "Using a tool to generate standardized names for your VMs, storage accounts and other Azure resources is a great way to relegate the task of coming up with resource names to the 'done-and-dusted' column.",
+    "tags": [
+        "azure",
+        "tooling",
+        "devops",
+        "cloud"
+    ],
+    "canonical_url": "",
+    "series": "DevCrewLever-Fall2020"
+}
