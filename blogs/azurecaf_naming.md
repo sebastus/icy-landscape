@@ -27,3 +27,4 @@ What are some of the nice-to-have requirements?
 * when there are many resources in list, it should be possible to instantly recognize resource types from the name
 * clear and concise name generation code
 * when an architecture grows or resources scale out horizontally, name generation follows naturally
+* when testing permutations of resource properties, generating names is a very powerful enabling technique
