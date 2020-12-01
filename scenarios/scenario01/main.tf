@@ -46,11 +46,11 @@ resource "azurecaf_name" "ws_name" {
 
   random_length = 8
   suffixes      = ["local"]
-  name          = substr(data.azurerm_subscription.current.display_name, 0, 45)
+  name          = substr(data.azurerm_subscription.current.display_name, 0, 44)
 
   # desired outcome = log-<sub name>-xxxxxxxx-local
-  # length = 2 + 1 + (45) + 1 + 8 + 1 + 5 = max of 63 characters for log analytics workspace name
-  # 45 is the max # of chars to get from the subscription name in order to get everything else into the generated name
+  # length = 3 + 1 + (44) + 1 + 8 + 1 + 5 = max of 63 characters for log analytics workspace name
+  # 44 is the max # of chars to get from the subscription name in order to get everything else into the generated name
   # because the "name" parameter is an override, if more characters are used, other portions of the generated name will be truncated
 }
 resource "azurerm_log_analytics_workspace" "ws" {

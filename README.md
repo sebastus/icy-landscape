@@ -28,4 +28,3 @@ A common requirement for all scenarios and tests is a terraform module encapsula
 - Scenario 3 depends on Scenario 1
 - Tests-01 to 05 depend on the script in the tests folder. But the Terratest handles these dependencies correctly.
 
-namePrecedence := []string{"name", "slug", "random", "suffixes", "prefixes"}
