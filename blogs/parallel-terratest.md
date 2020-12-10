@@ -5,6 +5,7 @@ description: How to run Terratest in parallel across all Azure policies assigned
 tags: azure,golang,devops,terraform
 series: DevCrewLever-Fall2020
 ---
+_This blog resulted from a customer development engagement. Want to read related blogs?  [Secure Azure as Code](https://dev.to/cse/secure-azure-as-code-5d9i)_
 
 Testing a policy is done with a few steps, each of which is a Terraform script:
 

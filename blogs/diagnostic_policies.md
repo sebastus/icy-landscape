@@ -5,6 +5,7 @@ description: How to automatically configure Azure Monitor diagnostic profiles on
 tags: azure,monitor,devops,terraform
 series: DevCrewLever-Fall2020
 ---
+_This blog resulted from a customer development engagement. Want to read related blogs?  [Secure Azure as Code](https://dev.to/cse/secure-azure-as-code-5d9i)_
 
 Infrastructure and platform monitoring are the province of [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/). The documentation provides several ways to configure diagnostic profiles on your resources so that the telemetry flows, but doing it onesy-twosy is a tax. Using [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/) together with an [open source Terraform module](https://github.com/Nepomuceno/terraform-azurerm-monitoring-policies) allows this task to fade into the background - done and dusted.
 
